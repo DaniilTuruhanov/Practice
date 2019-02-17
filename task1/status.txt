@@ -1,3 +1,4 @@
+$ git status
 On branch master
 
 No commits yet
@@ -13,5 +14,6 @@ Untracked files:
         .idea/
         Practice.iml
 
+$ git status
 On branch master
 nothing to commit, working tree clean
