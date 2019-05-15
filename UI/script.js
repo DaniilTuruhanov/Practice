@@ -1,250 +1,311 @@
-(function(){
-let photoPosts =[
-{
-    id: '1',
-    desription: 'Минск',
-    createdAt:new Date ('2019-01-01T22:00:00'),
-    author:'Тюрюханов Даниил',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+main = (function() {
+  let photoPosts = new PostList([{
+      id: '1',
+      desription: 'Минск',
+      createdAt: new Date('2019-01-01T22:00:00'),
+      author: 'Тюрюханов Даниил',
+      hashTags: ["programming"],
+      likes: ["Polya","Polya332","Polyafsdf"],
+      photoLink: 'Minsk5.jpg'
 
-},
-{
-    id: '2',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt: new Date ('2019-01-01T22:01:02'),
-    author:'Иванов Иван',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    },
+    {
+      id: '2',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-01T22:01:02'),
+      author: 'Иванов Иван',
+      hashTags: ["programming"],
+      likes: ["Polya","danik"],
+      photoLink: 'Minsk4.jpg'
 
-},
+    },
 
-{
-    id: '3',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt: new Date ('2019-01-22T22:15:00'),
-    author:'Петров Петр',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '3',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-22T22:15:00'),
+      author: 'Петров Петр',
+      hashTags: ["programming"],
+      likes: ["Polya","vwef","Polya435"],
+      photoLink: 'Minsk1.jpg'
 
-},
+    },
 
-{
-    id: '4',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2019-04-05T22:00:00'),
-    author:'Федоров Федор',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '4',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-04-05T22:00:00'),
+      author: 'Федоров Федор',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: 'bgu_zdanie.jpg'
 
-},
+    },
 
-{
-    id: '5',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt: new Date ('2019-01-09T08:00:00'),
-    author:'Александров Александр',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '5',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-09T08:00:00'),
+      author: 'Александров Александр',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: "Minsk6.jpg"
 
-},
+    },
 
-{
-    id: '6',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt: new Date ('2018-01-01T22:00:00'),
-    author:'Киселев Кисель',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '6',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2018-01-01T22:00:00'),
+      author: 'Киселев Кисель',
+      hashTags: ["programming"],
+      likes: ["Polya","danik"],
+      photoLink: 'bgu_zdanie.jpg'
 
-},
+    },
 
-{
-    id: '7',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2019-05-05T22:00:00'),
-    author:'Голынский Андрей',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '7',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-05-05T22:00:00'),
+      author: 'Голынский Андрей',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: 'Minsk1.jpg'
 
-},
+    },
 
-{
-    id: '8',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2019-09-12T22:00:00'),
-    author:'Данилков Егор',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '8',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-09-12T22:00:00'),
+      author: 'danik',
+      hashTags: ["programming", "thinking", "danik"],
+      likes: ["Polya","Polyaw","danik"],
+      photoLink: 'Minsk.jpg'
 
-},
+    },
 
-{
-    id: '9',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2018-01-01T22:00:00'),
-    author:'Шаповалов Геннадий',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '9',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2018-01-01T22:00:00'),
+      author: 'Шаповалов Геннадий',
+      hashTags: ["programming"],
+      likes: ["Polya","Polya2","v3"],
+      photoLink: 'Minsk2.jpg'
 
-},
+    },
 
-{
-    id: '10',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2019-01-01T22:00:00'),
-    author:'Гусев Тимофей',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '10',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-01T22:00:00'),
+      author: 'Гусев Тимофей',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: "bgu_zdanie.jpg"
 
-},
+    },
 
-{
-    id: '11',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2019-03-01T22:00:00'),
-    author:'Иванов Иван',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '11',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-03-01T22:00:00'),
+      author: 'Иванов Иван',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: 'Minsk8.jpg'
 
-},
+    },
 
-{
-    id: '12',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2019-01-01T22:00:00'),
-    author:'Иванов Иван',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '12',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-01T22:00:00'),
+      author: 'Иванов Иван',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: 'Minsk1.jpg'
 
-},
+    },
 
-{
-    id: '13',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2019-01-01T22:00:00'),
-    author:'Иванов Иван',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '13',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-01T22:00:00'),
+      author: 'Иванов Иван',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: 'bgu_zdanie.jpg'
 
-},
+    },
 
-{
-    id: '14',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2019-01-01T22:00:00'),
-    author:'Иванов Иван',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '14',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-01T22:00:00'),
+      author: 'Иванов Иван',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: "Minsk5.jpg"
 
-},
+    },
 
-{
-    id: '15',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt: new Date ('2019-01-01T22:00:00'),
-    author:'Иванов Иван',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '15',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-01T22:00:00'),
+      author: 'Иванов Иван',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: 'Minsk7.jpg'
 
-},
+    },
 
-{
-    id: '16',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2019-01-01T22:00:00'),
-    author:'Иванов Иван',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '16',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-01T22:00:00'),
+      author: 'Иванов Иван',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: 'Minsk2.jpg'
 
-},
+    },
 
-{
-    id: '17',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2019-01-01T22:00:00'),
-    author:'Иванов Иван',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '17',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-01T22:00:00'),
+      author: 'Иванов Иван',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: 'bgu_zdanie.jpg'
 
-},
+    },
 
-{
-    id: '18',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt:new Date ('2019-01-01T22:00:00'),
-    author:'Иванов Иван',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '18',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-01T22:00:00'),
+      author: 'Иванов Иван',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: 'Minsk1.jpg'
 
-},
+    },
 
-{
-    id: '19',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt: new Date ('2019-01-01T22:00:00'),
-    author:'Иванов Иван',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '19',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-01T22:00:00'),
+      author: 'Иванов Иван',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: 'Minsk.jpg'
 
-},
+    },
 
-{
-    id: '20',
-    desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
-    createdAt: new Date ('2019-01-01T22:00:00'),
-    author:'Иванов Иван',
-    photoLink: 'https://www.google.com/search?q=%D0%BC%D0%B8%D0%BD%D1%81%D0%BA&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjEx_P71PjgAhUEGuwKHUSMDo8Q_AUIDigB&biw=1083&bih=660#imgrc=7LF-JgCYIHWzeM:'
+    {
+      id: '20',
+      desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
+      createdAt: new Date('2019-01-01T22:00:00'),
+      author: 'Иванов Иван',
+      hashTags: ["programming"],
+      likes: ["Polya"],
+      photoLink: 'bgu_zdanie.jpg'
 
-},
- 
-];
-function getPhotoPosts(skip,top,filterConfig=''){
-    var photo1=new Array();
-    let j=false;
-    for (var i=0;i<photoPosts.length;i++){
-        photo1.push(photoPosts[i]);
+    },
+  ]);
+  let photoPostsList;
+  let userName = '';
+  let lastFilterConfig;
+  let pageNumber = 1;
+  let showUserPage = function() {
+    View.showUserHeader(userName);
+    View.showAddButton();
+    main.showPhotoPosts(lastFilterConfig);
+  };
+  return {
+    getPhotoPost(id) {
+      return photoPosts.get(id);
+    },
+
+    showPhotoPosts(filterConfig) {
+      View.clear();
+      pageNumber = 1;
+      if(filterConfig===undefined)
+      filterConfig = {};
+      //let filterConfig = View.getFilterConfig();
+      let photoPosts1 = photoPosts.getPage(0, 10, filterConfig);
+      lastFilterConfig = filterConfig;
+      photoPosts1.forEach(item => View.showPost(item));
+      // if (photoPosts1.length === 10 && photoPosts.getPage(10, 1, filterConfig).length === 1) {
+      //   View.showLoadMoreButton();
+      // }
+    },
+
+    // loadMore() {
+    //     let loadMoreButton = document.getElementsByClassName('load-more-button')[0];
+    //     document.getElementsByTagName('main')[0].removeChild(loadMoreButton);
+    //     let photoPosts = PostList.getPage(pageNumber * 10, 10, lastFilterConfig);
+    //     photoPosts.forEach(item => View.showPost(item, userName));
+    //     if (photoPosts.length === 10 && PostList.getPage(++pageNumber * 10, 1, lastFilterConfig).length === 1) {
+    //         View.showLoadMoreButton();
+    //     }
+
+    // },
+
+    addPhotoPost(post) {
+      if (userName !== '') {
+        post.author = userName;
+        if (photoPosts.add(post)) {
+          main.showPhotoPosts(lastFilterConfig);
+        }
+      }
+    },
+
+    removePhotoPost(id) {
+      if (userName !== '') {
+        if (photoPosts.remove(id+"")) {
+          View.removePost(id);
+          main.showPhotoPosts(lastFilterConfig);
+        }
+      }
+    },
+
+    editPhotoPost(id, photoPost) {
+      if (userName !== '') {
+        if (photoPosts.edit(id, photoPost)) {
+          View.replacePost(photoPosts.get(id));
+        }
+      }
+    },
+
+    likePhotoPost(photoPost) {
+      if (userName !== '') {
+        let index = photoPost.likes.indexOf(userName);
+        if (index === -1) {
+          photoPost.likes.push(userName);
+        } else {
+          photoPost.likes.splice(index, 1);
+        }
+      }
+
+    },
+
+    logIn(login) {
+      if (login !== '') {
+        userName = login;
+        View.showHeader();
+      }
+    },
+
+    getUser() {
+      return userName;
     }
-     photo1.sort(function(a,b){return a.createdAt - b.createdAt});
-    if (filterConfig==''){
-        var photo=photo1.slice(skip,skip+top);
-        return photo;
-    }
-    else{
-            photo1 = photo1.filter(function(element){
-           if (element.author==filterConfig.author) 
-           return true ;
-           else return false;
-           
-            });
-        }
-        var photo=photo1.slice(skip,skip+top);
-        return photo;
-    }
-    
-    function getPhotoPost(id){
-       for(let i=0;i<photoPosts.length;i++){
-           if (photoPosts[i].id==id){
-               return photoPosts[i];
-           }
-       }
-        }
-        function validatePhotoPost(photopost){
-            if(typeof(photopost.id) === undefined) return false;
-            if(typeof(photopost.description) === undefined) return false;
-            if(typeof(photopost.createdAt) === undefined) return false;
-            if(typeof(photopost.author) === undefined) return false;
-            if(typeof(photopost.photoLink) === undefined) return false;
-            return true;
-        }
-        function addPhotoPost(photopost){
-            if(validatePhotoPost(photopost) === true){
-                photoPosts.push(photopost);
-                return true;
-            }
-            return false;
-        }
-
-        function removePhotoPost(id){
-            post = getPhotoPost(id);
-            if(post !== undefined){
-                index = photoPosts.indexOf(post);
-                photoPosts.splice(index, 1);
-            }
-        }
-        function editPhotoPost(id, photoPost){
-            let post = getPhotoPost(id);
-            if(validatePhotoPost(post) == true){
-                for(x in photoPost){
-                    post[x] = photoPost[x];
-                }
-                return true;
-            }
-            return false;
-        }
-
-editPhotoPost('1', { photoLink: 'http://haradok.info/static/news/5/4565/preview.jpg' }) 
-console.log(photoPosts);
-
+  }
 }());
+main.logIn("danik");
+main.showPhotoPosts();
