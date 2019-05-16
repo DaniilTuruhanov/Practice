@@ -69,7 +69,7 @@ main = (function() {
       desription: 'Лучший электромобиль Tesla Model S Signature Perfomance',
       createdAt: new Date('2019-05-05T22:00:00'),
       author: 'Голынский Андрей',
-      hashTags: ["programming"],
+      hashTags: ["programming","#BSU"],
       likes: ["Polya"],
       photoLink: 'Minsk1.jpg'
 

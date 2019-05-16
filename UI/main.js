@@ -145,7 +145,8 @@ class PostList {
     if (filterConfig) {
       if (Object.prototype.hasOwnProperty.call(filterConfig, 'author')) {
         foundPosts = foundPosts.filter(post => post.author.includes(filterConfig.author));
-      } else if (Object.prototype.hasOwnProperty.call(filterConfig, 'hashTags')) {
+      } 
+       if (Object.prototype.hasOwnProperty.call(filterConfig, 'hashTags')) {
         if (filterConfig.hashTags.length !== 0) {
           foundPosts = foundPosts.filter((post) => {
             for (let i = 0; i < filterConfig.hashTags.length; i++) {
