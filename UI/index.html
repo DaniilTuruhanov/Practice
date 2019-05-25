@@ -14,9 +14,14 @@
 
   <header>
     <img class="Instagroom" src="Instagroom.png" height="90%" width="40%">
-   
-   
+    <div class="toLog">
      <img class="out" src="out.png" height="75%">
+     <div class="logIn">
+       <input type="text" placeholder="Логин">
+       <input type="password" placeholder="Пароль">
+       <button>OK</button>
+     </div>
+     </div>
  <p class="user">Тюрюханов Даниил</p>
   </header>
   <div class="add">
@@ -30,18 +35,45 @@
       <input placeholder="Введите имя" class="filters1" ></br>
       <input placeholder="Введите дату"class="filters1" type="date"></br>
       <select class="filters1" id="filters">
+        <option></option>
         <option>#MINSK</option>
         <option>#BSU</option>
         <option >#Famcs</option>
-        <option >#Belarus</option>
+        <option >#programming</option>
         <option>#Math</option>
       </select>
-      <button class="filter-button" style="margin-left: 7vw; border:none; background-color: #fff;">
+      <button class="filter-button" style="margin-left: 7vw; border:none; background-color: #fff;margin-top:2vw;">
         <img class="heart" src="heart.png" height="30" width="5vw" style="width:5vw;">
       </button>
     </div>
   </div>
-  <div class="all">
+  <div class="all" style="min-height:50vh;width: 99%;">
+    <div class="adding">
+        <span style="position: absolute; margin-left: 2vw; margin-top: 0.4vw;">Добавление</span>
+      <div class="add-photo">
+      <img src="addphoto.png" alt="">
+      <input class="new-img" type="file" name="" value="" style="width:100%; margin-left: 5vw;">
+      </div>
+      <div class="inputes-add">
+        <button class="close-add" style="float:right; background-color: red;">X</button>
+        <textarea name="name"placeholder="описание"></textarea>
+        <input type="text" name="" value="" placeholder="хештеги" style="width:90%;height:7%;">
+        <button class="confirm-add">Добавить</button>
+      </div>
+    </div>
+
+    <div class="paste">
+        <span style="position: absolute; margin-left: 2vw; margin-top: 0.4vw;">Редактирование</span>
+      <img src="addphoto.png" alt="">
+      <!-- <input type="file" name="" value="" style="width:100%; margin-left: 5vw;"> -->
+      <div class="inputes-paste">
+        <button class="close-paste" style="float:right; background-color: red;">X</button>
+        <textarea name="name"placeholder="описание"></textarea>
+        <input type="text" name="" value="" placeholder="хештеги" style="width:90%;height:7%;">
+        <button class="confirm-paste">изменить</button>
+      </div>
+    </div>
+
     <template id="photo-template">
       <div class="all-photo">
       <div class="photo">
@@ -63,6 +95,9 @@
       </div>
       <textarea class="textarea" placeholder="Написать новый коментарий:" cols="45%" rows="5%"> </textarea>
       </div>
+    </template>
+    <template class = "more-photos-template">
+    <button class="more-photos" type="button" style=" width: 50%; margin-left: 30%; margin-top: 8%; border: none; background-color: white;" value="Больше ">Больше фото</button>
     </template>
   </div>
 

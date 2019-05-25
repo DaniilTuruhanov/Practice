@@ -72,13 +72,13 @@ class PostList {
     if (!photoPost) {
       return false;
     }
-    if (!('likes' in photoPost && 'author' in photoPost && 'photoLink' in photoPost && 'createdAt' in photoPost && 'id' in photoPost && 'description' in photoPost && 'hashTags' in photoPost)) {
+    if (!('likes' in photoPost && 'author' in photoPost && 'photoLink' in photoPost && 'createdAt' in photoPost && 'id' in photoPost && 'desription' in photoPost && 'hashTags' in photoPost)) {
       return false;
     }
     if (photoPost.id === '' || typeof photoPost.id !== 'string') {
       return false;
     }
-    if (photoPost.description === '' || typeof photoPost.description !== 'string' || photoPost.description.length > 200) {
+    if (photoPost.desription === '' || typeof photoPost.desription !== 'string' || photoPost.desription.length > 200) {
       return false;
     }
     if (!(photoPost.createdAt instanceof Date) || photoPost.createdAt.toString() === "Invalid Date") {
@@ -101,9 +101,9 @@ class PostList {
     photoPost.id = "" + (this._posts.length + 1);
     photoPost.createdAt = new Date();
     photoPost.author = main.getUser();
-    if(photoPost.likes===undefined)
+    if (photoPost.likes === undefined)
       photoPost.likes = [];
-    if(photoPost.hashTags===undefined)
+    if (photoPost.hashTags === undefined)
       photoPost.hashTags = [];
 
     if (!PostList.validate(photoPost)) {
@@ -118,19 +118,22 @@ class PostList {
       return false;
     }
     let obj = this.get(id);
+    if (!PostList.validate(photoPost)) {
+      return false;
+    }
+    else{
     if ('hashTags' in photoPost) {
       obj.hashTags = photoPost.hashTags;
     }
-    if ('description' in photoPost) {
-      obj.description = photoPost.description;
+    if ('desription' in photoPost) {
+      obj.desription = photoPost.desription;
     }
-    if (!PostList.validate(obj)) {
-      return false;
-    }
-    for(let i = 0; i<this._posts.length; i++)
-      if(this._posts[i].id===obj.id)
-        this._posts[i]=obj;
+
+    for (let i = 0; i < this._posts.length; i++)
+      if (this._posts[i].id === obj.id)
+        this._posts[i] = obj;
     return true;
+    }
   }
 
 
@@ -145,13 +148,18 @@ class PostList {
     if (filterConfig) {
       if (Object.prototype.hasOwnProperty.call(filterConfig, 'author')) {
         foundPosts = foundPosts.filter(post => post.author.includes(filterConfig.author));
-      } 
-       if (Object.prototype.hasOwnProperty.call(filterConfig, 'hashTags')) {
+      }
+      if (Object.prototype.hasOwnProperty.call(filterConfig, 'createdAt')) {
+            foundPosts = foundPosts.filter(function (a) {
+                return a.createdAt >= filterConfig.createdAt;
+            });
+        }
+      if (Object.prototype.hasOwnProperty.call(filterConfig, 'hashTags')) {
         if (filterConfig.hashTags.length !== 0) {
           foundPosts = foundPosts.filter((post) => {
             for (let i = 0; i < filterConfig.hashTags.length; i++) {
               for (let j = 0; j < post.hashTags.length; j++) {
-                if (post.hashTags[j] === filterConfig.hashTags[i]) {
+                if (("#"+post.hashTags[j]) === filterConfig.hashTags[i]) {
                   return true;
                 }
               }
@@ -161,13 +169,16 @@ class PostList {
         }
       }
     }
-    foundPosts = foundPosts.slice(skip, skip + top);
+    //num = foundPosts.length;
+    //foundPosts = foundPosts.slice(skip, skip + top);
     if (PostList._checkObject(foundPosts) && foundPosts.length !== 0) {
       return foundPosts;
     }
 
     return null;
   }
+
+
 }
 
 

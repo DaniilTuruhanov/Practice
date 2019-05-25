@@ -4,6 +4,9 @@ static clear() {
     if(full.length!==0)
     for(let i=full.length-1; i>=0; i--)
         full[i].parentNode.removeChild(full[i]);
+    let but = document.getElementsByClassName("more-photos")[0];
+    if(but!==undefined)
+    but.parentNode.removeChild(but);
   }
 
   static showHeader() {
@@ -25,15 +28,20 @@ static clear() {
     photo.src = post.photoLink;
     View.showHeaderPost(post, content);
     let user = main.getUser();
+    let likeButt = content.querySelector(".button");
+    likeButt.id = post.id;
+    let bin = content.querySelector(".bin");
+    bin.id = post.id;
+    let setting = content.querySelector(".setting");
+    setting.id = post.id;
     if(user!==post.author){
-      content.querySelector(".bin").style.display = "none";
-      content.querySelector(".setting").style.display = "none";
-
+      bin.style.display = "none";
+      setting.style.display = "none";
+}
       for(let hash of post.likes){
         if(user===hash)
           content.querySelector(".heart").src = "heart2.png";
       }
-    }
     return content;
   }
 
@@ -91,5 +99,21 @@ static clear() {
       }
     }
   }
+
+  static showLoadMoreButton() {
+        let tmpl = document.querySelector(".more-photos-template");
+        let buttonNode = tmpl.content.cloneNode(true);
+        document.getElementsByClassName('all')[0].appendChild(buttonNode);
+
+        let moreButt = document.querySelector(".more-photos");
+        moreButt.addEventListener("click",showMore);
+
+        function showMore(){
+          let num = main.getPageNumber();
+          main.showPhotoPosts(main.getLastFilter(),num*10);
+          scroll(0,0);
+          main.incPageNumber();
+        }
+    }
 
 }
