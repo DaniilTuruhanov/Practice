@@ -69,6 +69,7 @@ function logOut() {
         main.logIn(login.value);
         login.value="";
         passw.value="";
+        document.getElementsByClassName("add")[0].style.display="flex";
         main.showPhotoPosts();
         this.removeEventListener("click",t);
     }
